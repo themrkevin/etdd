@@ -1,17 +1,6 @@
-%h1= pluralize(@events.size, 'Event')
+%h1= pluralize(@events.size, 'Upcoming Event')
+%ul
+  %li= link_to "Add Event", new_event_path
+  %li= link_to "Archived Events", archived_events_path
 %article
-  - @events.each do |event|
-    .event
-      %h2= link_to event.name, event
-      %p= truncate(event.description, length: 35, separator: '')
-      %ul
-        %li
-          %strong When:
-          = event.starts_at
-        %li
-          %strong Where:
-          = event.location
-        %li
-          %strong Price:
-          = format_price(event)
-
+= render "events_list"

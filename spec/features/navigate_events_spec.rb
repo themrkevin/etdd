@@ -6,7 +6,7 @@ describe "Navigating events" do
 
     visit event_url(event)
 
-    click_link "All Events"
+    click_link "Back to Events"
 
     expect(current_path).to eq(events_path)
   end
@@ -28,6 +28,6 @@ describe "Navigating events" do
 
     click_link "Edit"
 
-    expect(current_path).to eq(edit_path(event))
+    expect(current_path).to eq(edit_event_path(event))
   end
 end

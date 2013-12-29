@@ -1,5 +1,6 @@
 %article
   %h1= @event.name
+  = image_for(@event)
   %p= @event.description
   %ul
     %li
@@ -11,8 +12,15 @@
     %li
       %strong Price:
       = format_price(@event)
-%ul.links
-  %li.admin.edit
-    = link_to "Edit", edit_path
-  %li
-    = link_to "All Events", events_path
+  %p
+    %strong= pluralize(@event.capacity, "spot") 
+  = link_to "View Registrations", event_registrations_path(@event)
+  %ul.links
+    %li.admin.edit
+      = link_to "Edit", edit_event_path
+    %li
+      = link_to "Back to Events", events_path
+    %li.admin.delete
+      = link_to "Delete", event_path(@event), 
+                method: :delete, 
+                data: {confirm: "ORly?"}

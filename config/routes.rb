@@ -1,6 +1,9 @@
 Events::Application.routes.draw do
   root "events#index"
-  get "events" => "events#index"
-  get "events/:id" => "events#show", as: "event"
-  get "events/:id/edit" => "events#edit", as: "edit"
+  
+  get "events/archived" => "events#archived", as: "archived_events"
+
+  resources :events do
+    resources :registrations
+  end
 end
