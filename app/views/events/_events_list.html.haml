@@ -1,0 +1,15 @@
+- @events.each do |event|
+  .event
+    %h2= link_to event.name, event
+    = image_for(event)
+    %p= truncate(event.description, length: 35, separator: '')
+    %ul
+      %li
+        %strong When:
+        = event.starts_at
+      %li
+        %strong Where:
+        = event.location
+      %li
+        %strong Price:
+        = format_price(event)

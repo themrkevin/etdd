@@ -1,0 +1,8 @@
+%h1 
+  Registrations for
+  = link_to @event.name, @event
+%ol#registrations
+  - @registrations.each do |r|
+    %li
+      = mail_to(r.mail, r.name)
+      = r.event.name

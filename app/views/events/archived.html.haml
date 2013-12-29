@@ -1,0 +1,4 @@
+%h1= pluralize(@events.size, 'Archived Event')
+= link_to "Upcoming Event", events_path
+%article
+= render "events_list"

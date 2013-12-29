@@ -1,0 +1,8 @@
+- if object.errors.any?
+  #errors
+    %p 
+      %strong Oops!
+      You messed it all up. Here, fix this junk.
+    %ul
+      - object.errors.full_messages.each do |msg|
+        %li= msg

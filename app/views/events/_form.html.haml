@@ -1,0 +1,25 @@
+= form_for @event do |f|
+  = render "errors", object: @event
+  %ol
+    %li
+      = f.label :name
+      = f.text_field :name, placeholder: "Name", autofocus: true
+    %li
+      = f.label :image_file_name
+      = f.text_field :image_file_name, size: 30, placeholder: "GIF, JPG, or PNG file name"
+    %li
+      = f.label :capacity
+      = f.text_field :capacity, placeholder: "Capacity"
+    %li
+      = f.label :description
+      = f.text_area :description, placeholder: "Description"
+    %li
+      = f.label :location
+      = f.text_field :location, placeholder: "Location"
+    %li
+      = f.label :price
+      = f.number_field :price, placeholder: "Price"
+    %li
+      = f.label :starts_at
+      = f.date_field :starts_at, placeholder: "Date of Event"
+  = f.submit
